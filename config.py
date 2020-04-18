@@ -1,6 +1,8 @@
 sites = {
     "btc.com": "https://btc.com/stats/api/realtime/poolHashrate?count=20",
     "emcd.io": "https://common.emcd.io/get_calc?emcd=1",
+    "viabtc.com": "https://www.viabtc.com/res/tools/calculator?coin=BTC",
+    "trustpool.ru": "https://trustpool.ru/res/saas/pool/state/new"
 }
 
 fake_ua = {
@@ -12,4 +14,5 @@ commisions = {
     'poolin': 2.0,
     'btc.com': 3.0,
     'emcd.io': 2.7,
+    'trustpool.ru': 3.5
 }

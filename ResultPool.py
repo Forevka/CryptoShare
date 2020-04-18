@@ -13,19 +13,19 @@ class ResultPool:
         self.parsers = []
         self.results = []
 
-    def attach_parser(self, parser: Type[BaseParser],) -> None:
-        return self.parsers.append(parser)
+    def attach_parser(self, *parsers: Type[BaseParser],) -> None:
+        return self.parsers.extend(list(parsers))
 
     def parse(self,) -> List[ResultModel]:
-        results: List[ResultModel] = []
+        self.results: List[ResultModel] = []
 
         for parser in self.parsers:
             instance = parser(sites.get(parser.__site__.lower(), ''))
-            results.extend(list(instance.parse()))
+            self.results.extend(list(instance.parse()))
         
         self._load_commision()
 
-        return results
+        return self.results
     
     def _load_commision(self,) -> None:
         for res in self.results:
